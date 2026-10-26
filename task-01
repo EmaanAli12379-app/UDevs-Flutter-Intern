@@ -1,0 +1,96 @@
+import 'dart:io';
+
+void main() {
+  // 1. Basic Console I/O and Object Creation
+  print("hi");
+  stdout.write('whats ur name? ');
+  var name = stdin.readLineSync();
+  print('Welcome $name');
+
+  Human h = Human(); // Runtime object allocation
+  print('Human instance created: $h');
+
+  // 2. Dynamic and Var Variables Practice
+  var section;
+  section = 'D';
+  section = 'blue';
+  section = false;
+  print("Section value: $section");
+
+  var rolls = 11;
+
+  print("Rolls number: $rolls");
+
+  // 3. Class and Method Calling
+  var myC = MyClass();
+  myC.printName(); // Calling zero-argument method
+  myC.printNameParam("Shabi"); // Calling parameterized method
+
+  print("Simple Add Result: ${myC.addSimple()}");
+  print("Parameterized Add Result: ${myC.addWithParams(10, 20)}");
+
+  // 4. Final, Const, and Var with Lists
+  final namesFinal = ["shabi", "maan", "hazu", "shery"];
+  namesFinal.add("meenu");
+  print("Final Names List: $namesFinal");
+
+  var namesVar;
+  namesVar = ['sam', 'susan', 'sara'];
+  namesVar[2] = "hurray";
+  namesVar = [1, 2, 3, 4, 5];
+  print("Var Names List Updated: $namesVar");
+
+  const namesConst = ['a', 'b', 'c'];
+  print("Const Names List: $namesConst");
+
+  // 5. List Operations & Manipulations
+  var list = [5, 6, 7, 8];
+  list.add(9);
+
+  var myc = [];
+  myc.addAll(list);
+  myc.insert(2, 10);
+  myc.insertAll(3, list);
+  print("MyC List after insertions: $myc");
+
+  list.replaceRange(0, 3, [4, 3, 7, 8]);
+  list.removeLast();
+  list.remove(8);
+  list.removeAt(1);
+  list.removeRange(0, 2);
+  // 6. List Properties Inspection
+  print("Final List: $list");
+  print("Length: ${list.length}");
+  print("Reversed: ${list.reversed}");
+  print("Is Empty: ${list.isEmpty}");
+  print("Is Not Empty: ${list.isNotEmpty}");
+  print("First Element: ${list.first}");
+  print("Last Element: ${list.last}");
+  print("Element at index 2: ${list.elementAt(2)}");
+}
+
+// Class Definitions
+class Human {}
+
+class MyClass {
+  void printName() {
+    print("helo");
+  }
+
+  // Method with parameter
+
+  void printNameParam(String name) {
+    print(name);
+  }
+
+  int addSimple() {
+    int a = 2, b = 4;
+    int sum = a + b;
+    return sum;
+  }
+
+  int addWithParams(int no1, int no2) {
+    int sum = no1 + no2;
+    return sum;
+  }
+}
